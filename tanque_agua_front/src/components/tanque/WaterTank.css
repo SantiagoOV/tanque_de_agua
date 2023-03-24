@@ -1,0 +1,87 @@
+.divTank {
+    width: max-content;
+    height: 95%;
+    margin: 0px 17pc;
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.divWater{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.divWater2{
+    height: 214px;
+    width: 97%;
+    position: absolute;
+    display: block;
+    top: 8%;
+    left: 2%;
+    border-radius: 72px 68px 26px 26px;
+    overflow: hidden;
+}
+
+.divWater3{
+    height: 213px;
+    width: 83%;
+    position: relative;
+    display: block;
+    margin: 0 auto;
+    left: 1px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+
+.divWater3 div{
+    background: #004ec3;
+    height: 100%;
+    position: absolute;
+    display: block;
+    width: 100%;
+}
+
+.divWater img{
+    position: relative;
+    display: block;
+}
+
+.tableWater{margin-left: 30px;}
+
+.tableWater th{
+    padding-right: 10px;
+}
+
+.tableWater th,.tableWater td,.tableWater tr{
+    max-width: max-content;
+    padding-bottom: 10px;
+}
+
+.inputWater,.inputWater::placeholder{
+    color: rgb(105, 105, 105);
+}
+
+.inputWater {
+    width: 78%;
+    border: 2px solid #746f6f;
+    border-radius: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    transition: 0.5s;
+    float: left;
+    background: #c9c9c9 !important;
+}
+
+.inputWater:focus {
+    transition: 0.5s;
+    box-shadow: 0px 0px 8px 5px #746f6f;
+    background: #fff !important;
+}
+
+.capabilityTank {
+    display: grid;
+    height: 38%;
+    align-items: center;
+}

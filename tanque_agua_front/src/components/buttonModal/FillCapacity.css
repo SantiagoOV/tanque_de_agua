@@ -1,0 +1,42 @@
+.ButtonDiv {
+  width: max-content;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.ButtonDiv2 {
+    margin: 0 auto;
+    display: table-cell;
+    vertical-align: middle;
+    height: 100vh;
+}
+
+.buttonModal {
+    background: #1355a7;
+    font-family: monospace;
+    border: 3px solid #10407c;
+    border-radius: 10px;
+    color: white;
+}
+
+.buttonModal:hover {
+    background: #0d2b50;
+    font-family: monospace;
+    border: 3px solid #04101f;
+    border-radius: 10px;
+    color: white;
+}
+
+.inputCantTank {
+    width: 100%;
+    border: 2px solid #746f6f;
+    border-radius: 10px;
+    padding-left: 7px;
+    padding-right: 7px;
+    transition: 0.5s;
+}
+
+.inputCantTank:focus {
+    transition: 0.5s;
+    box-shadow: 0px 0px 8px 5px #746f6f;
+}

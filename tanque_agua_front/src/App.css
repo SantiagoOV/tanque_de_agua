@@ -1,0 +1,11 @@
+.App {
+  background: #929292;
+  width: 100%;
+  height: 100vh;
+}
+
+.ButtonDiv {    
+  width: max-content;
+  height: 100%;
+  margin: 0 auto;
+}
