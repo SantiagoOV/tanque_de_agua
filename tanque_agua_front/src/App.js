@@ -5,6 +5,7 @@ import WaterTank from './components/tanque/WaterTank';
 function App() {
   return (
     <div className="App">
+      {/*enrutador*/}
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<FillCapacity/>}/>

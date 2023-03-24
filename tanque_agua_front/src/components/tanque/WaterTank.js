@@ -3,30 +3,28 @@ import { Link } from "react-router-dom";
 import Tank from '../../assets/imagenes/Tank.png';
 import './WaterTank.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import axios from "axios";
 
 export default function WaterTank() {
 
     const [data, setData] = useState();
  
-    const capabilities = async () => {
-        const data = await fetch(`${process.env.REACT_APP_API_URL}/capabilities`,{
-            method:"GET",
-            headers: {
-              'Content-Type': 'application/json'
-            }
-        });
-        const capabilities = await data.json();
-        setData(capabilities);
-    }
-
+    //consumo de servicio GET
     useEffect(() => {
-        capabilities()
+        axios.get(`${process.env.REACT_APP_API_URL}/capabilities`)
+        .then(response => {
+            setData(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }, [])
 
     return (
         <Fragment>
             <Link to={"/"} className="btn btn-danger">Volver</Link>
             {data ? (<div className="divTank">
+                {/*unidades de llenado*/}
                 <div className="capabilityTank">
                     <div>
                         50
@@ -46,6 +44,7 @@ export default function WaterTank() {
                     </div>
                     <img src={Tank}></img>
                 </div>
+                {/*tabla para manejo de cantidades*/}
                 <table className="table align-middle tableWater">
                     <tr>
                         <th>

@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.CapabilitiesControllers = void 0;
 class CapabilitiesControllers {
+    //Controladores de servicios para las capacidades del tanque
     constructor(repository) {
         this.repository = repository;
     }

@@ -19,6 +19,7 @@ class CapabilitiesRepository {
     list(query) {
         throw new Error("Method not implemented.");
     }
+    //Repositorio de servicio create para las Capabilities
     create(data, query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(capacidadEntity_1.Capabilities);
@@ -27,6 +28,7 @@ class CapabilitiesRepository {
             return equivalenciesEntity;
         });
     }
+    ////Repositorio get para listar la ultima capacidad
     getEnd(query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(capacidadEntity_1.Capabilities)

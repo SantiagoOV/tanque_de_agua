@@ -3,6 +3,9 @@ import { DatabaseRepository } from "../declarations/declaration";
 import { Capabilities } from "../Entities/capacidadEntity";
 
 export class CapabilitiesControllers {
+
+    //Controladores de servicios para las capacidades del tanque
+    
     constructor(private repository: DatabaseRepository<Capabilities>) {}
 
     async create(req: Request, res: Response, next: NextFunction) : Promise<void> {

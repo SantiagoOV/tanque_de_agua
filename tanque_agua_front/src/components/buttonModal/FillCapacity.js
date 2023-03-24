@@ -5,31 +5,34 @@ import {
     ModalHeader, ModalBody
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Link, Router } from "react-router-dom";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 export function FillCapacity() {
 
     const [showModal, setShowModal] = useState(false);
     const [capability, setCapability] = useState({});
 
-    const capabilityTank = async (event) => {
+    //consumo de servicio POST
         const dataTank={
             "capability": capability,
             "unidad_medida": "cm³"
         }
-        const data = await fetch(`${process.env.REACT_APP_API_URL}/createCapabilities`,{
-            method:"POST",
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(dataTank)
-        });
-    }
+        function enviarDatos() {
+        axios.post(`${process.env.REACT_APP_API_URL}/createCapabilities`, dataTank)
+            .then((response => {
+                response.status("success")
+            }))
+            .catch((error) => {
+              console.log(error)      
+            })
+        }
+    
     const handleInputChange = (event) => {
         setCapability(event.target.value);
     };    
  
-
+    //modal de colocacion cantidad tanque inicial
     const modal = () => {
         return(
             <Modal className="modal-dialog modal-dialog-centered" isOpen={showModal}>
@@ -39,9 +42,7 @@ export function FillCapacity() {
             </ModalBody>
             <ModalFooter>
                 <Button className="btn btn-danger" onClick={() => setShowModal(false)}>Cancelar</Button>
-                
-                <Link className="btn btn-primary">Guardar</Link>
-                <Link to={"/tank"} onClick={capabilityTank} className="btn btn-primary">Guardar</Link>
+                <Link to={"/tank"} onClick={enviarDatos} className="btn btn-primary">Guardar</Link>
             </ModalFooter>
         </Modal>
         )

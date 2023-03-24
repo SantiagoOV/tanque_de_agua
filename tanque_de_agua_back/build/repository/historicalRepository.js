@@ -19,6 +19,7 @@ class HistoricalRepository {
     getEnd(query) {
         throw new Error("Method not implemented.");
     }
+    //Repository para crear dato de historial
     create(data, query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(historicalEntity_1.Historical);

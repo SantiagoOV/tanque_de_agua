@@ -19,6 +19,7 @@ class equivalenciesRepository {
     getEnd(query) {
         throw new Error("Method not implemented.");
     }
+    //Repository create equivalencias de unidades
     create(data, query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(equivalenciesEntity_1.Equivalencies);
@@ -28,6 +29,7 @@ class equivalenciesRepository {
             return equivalenciesEntity;
         });
     }
+    //Repository listar equivalencias
     list(query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(equivalenciesEntity_1.Equivalencies);

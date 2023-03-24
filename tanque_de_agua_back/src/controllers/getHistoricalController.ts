@@ -3,6 +3,9 @@ import { DatabaseRepository } from "../declarations/declaration";
 import { Historical } from "../Entities/historicalEntity";
 
 export class GetHistoricalControllers {
+
+    //Controlador para listar el historico del tanque
+
     constructor(private repository: DatabaseRepository<Historical>) {}
 
     async list(req: Request, res: Response, next: NextFunction) : Promise<void> {

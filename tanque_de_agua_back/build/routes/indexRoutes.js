@@ -23,7 +23,7 @@ class IndexRoutes {
         this.router.get('/equivalencies', this.controllersEquivalencies.list.bind(this.controllersEquivalencies));
         this.router.post('/createEquivalencies', this.controllersEquivalencies.create.bind(this.controllersEquivalencies));
         /*rutas para la capacidad del tanque*/
-        this.router.get('/capabilities', this.capabilitiesControllers.list.bind(this.capabilitiesControllers));
+        this.router.get('/capabilities', this.capabilitiesControllers.getEnd.bind(this.capabilitiesControllers));
         this.router.post('/createCapabilities', this.capabilitiesControllers.create.bind(this.capabilitiesControllers));
         /*rutas para el historico de llenado o vacio*/
         this.router.get('/historical', this.getHistoricalControllers.list.bind(this.getHistoricalControllers));

@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.equivalenciesControllers = void 0;
 class equivalenciesControllers {
+    //Controladores para las equivalencias de unidades
     constructor(repository) {
         this.repository = repository;
     }

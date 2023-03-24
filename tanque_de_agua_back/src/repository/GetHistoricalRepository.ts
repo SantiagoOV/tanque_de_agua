@@ -12,6 +12,8 @@ export class GetHistoricalRepository implements DatabaseRepository<Historical> {
     update(id: Id, query?: Query | undefined): Promise<Historical> {
         throw new Error("Method not implemented.");
     }
+
+    //Repository para listar el historico de uso
     async list(query?: Query | undefined): Promise<Historical[]> {
         const repository = database.getRepository(Historical)
                     .createQueryBuilder('historical')

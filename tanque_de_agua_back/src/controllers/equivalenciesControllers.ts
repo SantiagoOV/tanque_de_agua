@@ -3,6 +3,9 @@ import { DatabaseRepository } from "../declarations/declaration";
 import { Equivalencies } from "../Entities/equivalenciesEntity";
 
 export class equivalenciesControllers {
+
+    //Controladores para las equivalencias de unidades
+
     constructor(private repository: DatabaseRepository<Equivalencies>) {}
 
     async create(req: Request, res: Response, next: NextFunction) : Promise<void> {

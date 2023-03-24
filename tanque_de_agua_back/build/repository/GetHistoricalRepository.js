@@ -25,6 +25,7 @@ class GetHistoricalRepository {
     update(id, query) {
         throw new Error("Method not implemented.");
     }
+    //Repository para listar el historico de uso
     list(query) {
         return __awaiter(this, void 0, void 0, function* () {
             const repository = database_1.default.getRepository(historicalEntity_1.Historical)

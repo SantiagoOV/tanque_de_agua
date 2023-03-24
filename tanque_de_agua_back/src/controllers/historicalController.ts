@@ -3,6 +3,9 @@ import { DatabaseRepository } from "../declarations/declaration";
 import { HistoricalInterface } from "../Interface/historicalInterface";
 
 export class HistoricalControllers {
+
+    //Controlador para crear historico del tanque
+
     constructor(private repository: DatabaseRepository<HistoricalInterface>) {}
 
     async create(req: Request, res: Response, next: NextFunction) : Promise<void> {

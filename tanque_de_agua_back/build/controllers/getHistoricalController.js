@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetHistoricalControllers = void 0;
 class GetHistoricalControllers {
+    //Controlador para listar el historico del tanque
     constructor(repository) {
         this.repository = repository;
     }

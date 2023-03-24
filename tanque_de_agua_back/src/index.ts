@@ -15,6 +15,7 @@ class Server {
         this.routes();
     }
 
+    //configuracion del puerto y express
     config(): void {
         this.app.set('port', process.env.PORT || 3099);
         this.app.use(morgan('dev'));
@@ -27,9 +28,10 @@ class Server {
         this.app.use(indexRoutes)
     }
 
+    //inicio de ejecutado
     start() {
         this.app.listen(this.app.get('port'), () => {
-            console.log("BIENVENIDO AL API MAS CHINGON");
+            console.log("BIENVENIDO AL API REST");
             console.log("       puerto ", this.app.get('port'));
             database.initialize()
                 .then(() => console.log("Database conected"))
