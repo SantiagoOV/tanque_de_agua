@@ -5,27 +5,40 @@ import {
     ModalHeader, ModalBody
 } from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Link } from "react-router-dom";
 import axios from "axios";
+import {createBrowserHistory } from "history";
 
 export function FillCapacity() {
 
     const [showModal, setShowModal] = useState(false);
     const [capability, setCapability] = useState({});
 
+
+    const history = createBrowserHistory();
+
     //consumo de servicio POST
         const dataTank={
             "capability": capability,
             "unidad_medida": "cm³"
         }
+        const firstHistorical = {
+            unidad_medida: "cm³",
+            llenado: 0,
+            vaciado: 0,
+            disponibilidad: capability,
+            total_capacity: 1
+        }
         function enviarDatos() {
-        axios.post(`${process.env.REACT_APP_API_URL}/createCapabilities`, dataTank)
-            .then((response => {
-                response.status("success")
+        const request1 =  axios.post(`${process.env.REACT_APP_API_URL}/createCapabilities`, dataTank)
+        const request2 = axios.post(`${process.env.REACT_APP_API_URL}/createHistorical`, firstHistorical)
+
+        axios.all([request1, request2])
+            .then(axios.spread((response1, response2) => {
+                history.push("/tank")
+                window.location.reload()
+                response1.status("success")
+                response2.status("sucess")
             }))
-            .catch((error) => {
-              console.log(error)      
-            })
         }
     
     const handleInputChange = (event) => {
@@ -42,7 +55,7 @@ export function FillCapacity() {
             </ModalBody>
             <ModalFooter>
                 <Button className="btn btn-danger" onClick={() => setShowModal(false)}>Cancelar</Button>
-                <Link to={"/tank"} onClick={enviarDatos} className="btn btn-primary">Guardar</Link>
+                <Button onClick={enviarDatos} className="btn btn-primary">Guardar</Button>
             </ModalFooter>
         </Modal>
         )

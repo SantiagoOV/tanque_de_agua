@@ -1,4 +1,4 @@
-import { response, Router } from 'express';
+import {  Router } from 'express';
 import { CapabilitiesControllers } from '../controllers/capabilitiesController';
 import { equivalenciesControllers } from '../controllers/equivalenciesControllers';
 import { GetHistoricalControllers } from '../controllers/getHistoricalController';
@@ -39,6 +39,7 @@ class IndexRoutes {
 
         /*rutas para el historico de llenado o vacio*/
         this.router.get('/historical', this.getHistoricalControllers.list.bind(this.getHistoricalControllers))
+        this.router.get('/lastDatahistorical', this.getHistoricalControllers.getEnd.bind(this.getHistoricalControllers))
         this.router.post('/createHistorical', this.historicalControllers.create.bind(this.historicalControllers))
     }
 }

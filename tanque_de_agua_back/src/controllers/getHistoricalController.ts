@@ -16,4 +16,13 @@ export class GetHistoricalControllers {
             next(error)
         }
     }
+
+    async getEnd(req: Request, res: Response, next: NextFunction) : Promise<void> {
+        try {
+            const historical = await this.repository.getEnd();
+            res.status(200).json(historical);
+        } catch (error) {
+            next(error)
+        }
+    }
 }

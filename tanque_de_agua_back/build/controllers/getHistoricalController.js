@@ -26,5 +26,16 @@ class GetHistoricalControllers {
             }
         });
     }
+    getEnd(req, res, next) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const historical = yield this.repository.getEnd();
+                res.status(200).json(historical);
+            }
+            catch (error) {
+                next(error);
+            }
+        });
+    }
 }
 exports.GetHistoricalControllers = GetHistoricalControllers;

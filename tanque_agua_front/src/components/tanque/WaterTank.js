@@ -7,13 +7,25 @@ import axios from "axios";
 
 export default function WaterTank() {
 
-    const [data, setData] = useState();
- 
+    const [capabilities, setCapabilities] = useState();
+    const [historical, setHistorical] = useState();
+    
     //consumo de servicio GET
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_API_URL}/capabilities`)
         .then(response => {
-            setData(response.data)
+            setCapabilities(response.data)
+        })
+        .catch(error => {
+            console.log(error)
+        })
+    }, [])
+
+    //consumo de servicio GET
+    useEffect(() => {
+        axios.get(`${process.env.REACT_APP_API_URL}/lastDatahistorical`)
+        .then(response => {
+            setHistorical(response.data)
         })
         .catch(error => {
             console.log(error)
@@ -23,7 +35,7 @@ export default function WaterTank() {
     return (
         <Fragment>
             <Link to={"/"} className="btn btn-danger">Volver</Link>
-            {data ? (<div className="divTank">
+            {capabilities ? (<div className="divTank">
                 {/*unidades de llenado*/}
                 <div className="capabilityTank">
                     <div>
@@ -46,55 +58,54 @@ export default function WaterTank() {
                 </div>
                 {/*tabla para manejo de cantidades*/}
                 <table className="table align-middle tableWater">
-                    <tr>
-                        <th>
-                            Capacidad total CM³:
-                        </th>
-                        <td>
-                            <input className="form-control inputWater" type="number" placeholder={data.capability!= null ? (data.capability):"CM³"}></input>
-                            <label>CM<sup>3</sup></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Agregar LTS:
-                        </th>
-                        <td>
-                            <input placeholder="LTS" className="form-control inputWater" type="number"></input>
-                            <label>LTS</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Agregar MM³:
-                        </th>
-                        <td>
-                            <input placeholder="MM³" className="form-control inputWater" type="number"></input>
-                            <label>MM<sup>3</sup></label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Agregar CM³:
-                        </th>
-                        <td>
-                            <input placeholder="CM³" className="form-control inputWater" type="number"></input>
-                            <label>CM³</label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            Disponibilidad :
-                        </th>
-                        <td>
-                            <input disabled placeholder="CM³" className="form-control inputWater" type="number"></input>
-                            <label>CM³</label>
-                        </td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th>
+                                Capacidad total CM³:
+                            </th>
+                            <td>
+                                <input className="form-control inputWater" type="number" placeholder={capabilities.capability!= null ? (capabilities.capability):"CM³"}></input>
+                                <label>CM<sup>3</sup></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Agregar LTS:
+                            </th>
+                            <td>
+                                <input placeholder="LTS" className="form-control inputWater" type="number"></input>
+                                <label>LTS</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Agregar MM³:
+                            </th>
+                            <td>
+                                <input placeholder="MM³" className="form-control inputWater" type="number"></input>
+                                <label>MM<sup>3</sup></label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Agregar CM³:
+                            </th>
+                            <td>
+                                <input placeholder="CM³" className="form-control inputWater" type="number"></input>
+                                <label>CM³</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                Disponibilidad :
+                            </th>
+                            <td>
+                                <input disabled placeholder="CM³" className="form-control inputWater" type="number" value={historical.disponibilidad}></input>
+                                <label>CM³</label>
+                            </td>
+                        </tr>
+                    </tbody>
                 </table>
-                <div>
-                    <button></button>
-                </div>
             </div>) : null}
         </Fragment>
     )

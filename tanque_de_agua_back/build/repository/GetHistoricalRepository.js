@@ -16,8 +16,16 @@ exports.GetHistoricalRepository = void 0;
 const database_1 = __importDefault(require("../config/database"));
 const historicalEntity_1 = require("../Entities/historicalEntity");
 class GetHistoricalRepository {
+    //Repository para listar el historico de uso de manero ascendente
     getEnd(query) {
-        throw new Error("Method not implemented.");
+        return __awaiter(this, void 0, void 0, function* () {
+            const repository = database_1.default.getRepository(historicalEntity_1.Historical)
+                .createQueryBuilder('historical')
+                .innerJoinAndSelect('historical.capabilities', 'capabilities')
+                .orderBy('capabilities.createdAt', 'DESC')
+                .getOne();
+            return repository.then();
+        });
     }
     create(data, query) {
         throw new Error("Method not implemented.");
